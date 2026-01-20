@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gop y & Bao tri - IT Vocab Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                    </svg>
+                </div>
+                <span class="sidebar-title">IT Vocab Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li><a href="dashboard.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="7" height="9" x="3" y="3" rx="1" />
+                                <rect width="7" height="5" x="14" y="3" rx="1" />
+                                <rect width="7" height="9" x="14" y="12" rx="1" />
+                                <rect width="7" height="5" x="3" y="16" rx="1" />
+                            </svg><span>Tong quan</span></a></li>
+                    <li><a href="vocabulary.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                            </svg><span>Quan ly Tu vung</span></a></li>
+                    <li><a href="topics.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" />
+                                <path d="M7 7h.01" />
+                            </svg><span>Quan ly Chu de</span></a></li>
+                    <li><a href="questions.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                <path d="M12 17h.01" />
+                            </svg><span>Quan ly Cau hoi</span></a></li>
+                    <li><a href="users.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg><span>Quan ly Nguoi dung</span></a></li>
+                    <li><a href="feedback.html" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg><span>Gop y & Bao tri</span></a></li>
+                    <li><a href="inventory.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m7.5 4.27 9 5.15" />
+                                <path
+                                    d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                                <path d="m3.3 7 8.7 5 8.7-5" />
+                                <path d="M12 22V12" />
+                            </svg><span>Quan ly Kho do</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-ghost"
+                    style="width:100%; justify-content: flex-start; gap: 0.75rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" x2="9" y1="12" y2="12" />
+                    </svg>
+                    <span>Dang xuat</span>
+                </a>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <button class="btn btn-ghost btn-icon" id="toggleSidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <h1 class="page-title">Gop y & Bao tri</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <p class="user-name">Admin</p>
+                        <p class="user-email">admin@itvocab.com</p>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <p class="stat-label">Tong gop y</p>
+                                <h3 class="stat-value">6</h3>
+                            </div>
+                            <div class="stat-icon cyan">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <p class="stat-label">Chua xu ly</p>
+                                <h3 class="stat-value" style="color: #3b82f6;">2</h3>
+                            </div>
+                            <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 8v4" />
+                                    <path d="M12 16h.01" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <p class="stat-label">Dang xu ly</p>
+                                <h3 class="stat-value" style="color: #ca8a04;">2</h3>
+                            </div>
+                            <div class="stat-icon" style="background: rgba(234, 179, 8, 0.1); color: #ca8a04;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <p class="stat-label">Da hoan thanh</p>
+                                <h3 class="stat-value" style="color: #22c55e;">2</h3>
+                            </div>
+                            <div class="stat-icon green">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Gop y & Bao tri</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="filters-row">
+                            <div class="search-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="m21 21-4.3-4.3" />
+                                </svg>
+                                <input type="text" class="search-input" placeholder="Tim kiem gop y...">
+                            </div>
+                            <select class="filter-select">
+                                <option value="all">Tat ca</option>
+                                <option value="new">Moi</option>
+                                <option value="in-progress">Dang xu ly</option>
+                                <option value="completed">Da xong</option>
+                            </select>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Noi dung</th>
+                                        <th>Nguoi gui</th>
+                                        <th>Loai</th>
+                                        <th>Thoi gian</th>
+                                        <th>Trang thai</th>
+                                        <th style="text-align: right;">Thao tac</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="max-width: 300px;">
+                                            <p style="font-weight: 500;" class="truncate">Ung dung rat huu ich nhung can
+                                                them chuc nang on tap theo khoang thoi gian (spaced repetition)</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p style="font-weight: 500;">Nguyen Van A</p>
+                                                <p style="font-size: 0.75rem; color: var(--muted-foreground);">
+                                                    nguyenvana@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-purple">Feature Request</span></td>
+                                        <td style="font-size: 0.875rem; color: var(--muted-foreground);">2024-01-12
+                                            14:30</td>
+                                        <td>
+                                            <select class="status-select">
+                                                <option value="new" selected>Moi</option>
+                                                <option value="in-progress">Dang xu ly</option>
+                                                <option value="completed">Da xong</option>
+                                            </select>
+                                        </td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"
+                                                onclick="openModal('detailModal')"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="max-width: 300px;">
+                                            <p style="font-weight: 500;" class="truncate">Phat hien loi khi import file
+                                                Excel voi hon 1000 tu. Ung dung bi do.</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p style="font-weight: 500;">Tran Thi B</p>
+                                                <p style="font-size: 0.75rem; color: var(--muted-foreground);">
+                                                    tranthib@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-red">Bug Report</span></td>
+                                        <td style="font-size: 0.875rem; color: var(--muted-foreground);">2024-01-12
+                                            10:15</td>
+                                        <td>
+                                            <select class="status-select">
+                                                <option value="new">Moi</option>
+                                                <option value="in-progress" selected>Dang xu ly</option>
+                                                <option value="completed">Da xong</option>
+                                            </select>
+                                        </td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"
+                                                onclick="openModal('detailModal')"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="max-width: 300px;">
+                                            <p style="font-weight: 500;" class="truncate">Nen them che do dark mode de
+                                                hoc vao ban dem de hon</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p style="font-weight: 500;">Le Van C</p>
+                                                <p style="font-size: 0.75rem; color: var(--muted-foreground);">
+                                                    levanc@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-purple">Feature Request</span></td>
+                                        <td style="font-size: 0.875rem; color: var(--muted-foreground);">2024-01-11
+                                            16:45</td>
+                                        <td>
+                                            <select class="status-select">
+                                                <option value="new">Moi</option>
+                                                <option value="in-progress">Dang xu ly</option>
+                                                <option value="completed" selected>Da xong</option>
+                                            </select>
+                                        </td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"
+                                                onclick="openModal('detailModal')"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="max-width: 300px;">
+                                            <p style="font-weight: 500;" class="truncate">Cau hoi ve thuat ngu "API
+                                                Gateway" co dap an sai. Can kiem tra lai.</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p style="font-weight: 500;">Pham Thi D</p>
+                                                <p style="font-size: 0.75rem; color: var(--muted-foreground);">
+                                                    phamthid@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-orange">Content Issue</span></td>
+                                        <td style="font-size: 0.875rem; color: var(--muted-foreground);">2024-01-11
+                                            09:20</td>
+                                        <td>
+                                            <select class="status-select">
+                                                <option value="new" selected>Moi</option>
+                                                <option value="in-progress">Dang xu ly</option>
+                                                <option value="completed">Da xong</option>
+                                            </select>
+                                        </td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"
+                                                onclick="openModal('detailModal')"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="max-width: 300px;">
+                                            <p style="font-weight: 500;" class="truncate">Rat thich giao dien moi! Cam
+                                                on team da cap nhat.</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p style="font-weight: 500;">Hoang Van E</p>
+                                                <p style="font-size: 0.75rem; color: var(--muted-foreground);">
+                                                    hoangvane@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-gray">General Feedback</span></td>
+                                        <td style="font-size: 0.875rem; color: var(--muted-foreground);">2024-01-10
+                                            20:00</td>
+                                        <td>
+                                            <select class="status-select">
+                                                <option value="new">Moi</option>
+                                                <option value="in-progress">Dang xu ly</option>
+                                                <option value="completed" selected>Da xong</option>
+                                            </select>
+                                        </td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"
+                                                onclick="openModal('detailModal')"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="max-width: 300px;">
+                                            <p style="font-weight: 500;" class="truncate">Khong the dang nhap bang
+                                                Google tren dien thoai Android</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p style="font-weight: 500;">Vo Thi F</p>
+                                                <p style="font-size: 0.75rem; color: var(--muted-foreground);">
+                                                    vothif@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-red">Bug Report</span></td>
+                                        <td style="font-size: 0.875rem; color: var(--muted-foreground);">2024-01-10
+                                            11:30</td>
+                                        <td>
+                                            <select class="status-select">
+                                                <option value="new">Moi</option>
+                                                <option value="in-progress" selected>Dang xu ly</option>
+                                                <option value="completed">Da xong</option>
+                                            </select>
+                                        </td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"
+                                                onclick="openModal('detailModal')"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                                    <circle cx="12" cy="12" r="3" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="table-count">Hien thi 6 / 6 gop y</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Chi tiet Gop y</h3>
+                <p class="modal-description">ID: #1</p>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <h4 style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem;">Noi dung:</h4>
+                    <p style="font-size: 0.875rem; color: var(--muted-foreground);">Ung dung rat huu ich nhung can them
+                        chuc nang on tap theo khoang thoi gian (spaced repetition)</p>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <h4 style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem;">Nguoi gui:</h4>
+                        <p style="font-size: 0.875rem;">Nguyen Van A</p>
+                        <p style="font-size: 0.75rem; color: var(--muted-foreground);">nguyenvana@example.com</p>
+                    </div>
+                    <div class="form-group">
+                        <h4 style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem;">Thoi gian:</h4>
+                        <p style="font-size: 0.875rem;">2024-01-12 14:30</p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <h4 style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem;">Loai:</h4>
+                        <span class="badge badge-purple">Feature Request</span>
+                    </div>
+                    <div class="form-group">
+                        <h4 style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem;">Trang thai:</h4>
+                        <span class="badge badge-blue flex-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 8v4" />
+                                <path d="M12 16h.01" />
+                            </svg>
+                            Moi
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('detailModal')">Dong</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

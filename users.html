@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quan ly Nguoi dung - IT Vocab Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                    </svg>
+                </div>
+                <span class="sidebar-title">IT Vocab Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li><a href="dashboard.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="7" height="9" x="3" y="3" rx="1" />
+                                <rect width="7" height="5" x="14" y="3" rx="1" />
+                                <rect width="7" height="9" x="14" y="12" rx="1" />
+                                <rect width="7" height="5" x="3" y="16" rx="1" />
+                            </svg><span>Tong quan</span></a></li>
+                    <li><a href="vocabulary.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                            </svg><span>Quan ly Tu vung</span></a></li>
+                    <li><a href="topics.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" />
+                                <path d="M7 7h.01" />
+                            </svg><span>Quan ly Chu de</span></a></li>
+                    <li><a href="questions.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                <path d="M12 17h.01" />
+                            </svg><span>Quan ly Cau hoi</span></a></li>
+                    <li><a href="users.html" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg><span>Quan ly Nguoi dung</span></a></li>
+                    <li><a href="feedback.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg><span>Gop y & Bao tri</span></a></li>
+                    <li><a href="inventory.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m7.5 4.27 9 5.15" />
+                                <path
+                                    d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                                <path d="m3.3 7 8.7 5 8.7-5" />
+                                <path d="M12 22V12" />
+                            </svg><span>Quan ly Kho do</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-ghost"
+                    style="width:100%; justify-content: flex-start; gap: 0.75rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" x2="9" y1="12" y2="12" />
+                    </svg>
+                    <span>Dang xuat</span>
+                </a>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <button class="btn btn-ghost btn-icon" id="toggleSidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <h1 class="page-title">Quan ly Nguoi dung</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <p class="user-name">Admin</p>
+                        <p class="user-email">admin@itvocab.com</p>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content">
+                <div class="card">
+                    <div class="card-header card-header-flex">
+                        <h2 class="card-title">Quan ly Nguoi dung</h2>
+                        <div class="mini-stats">
+                            <div class="mini-stat blue">
+                                <p class="mini-stat-value blue">5</p>
+                                <p class="mini-stat-label">Tong user</p>
+                            </div>
+                            <div class="mini-stat green">
+                                <p class="mini-stat-value green">4</p>
+                                <p class="mini-stat-label">Hoat dong</p>
+                            </div>
+                            <div class="mini-stat red">
+                                <p class="mini-stat-value red">1</p>
+                                <p class="mini-stat-label">Bi cam</p>
+                            </div>
+                            <div class="mini-stat purple">
+                                <p class="mini-stat-value purple">1</p>
+                                <p class="mini-stat-label">Platinum</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="search-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                            <input type="text" class="search-input" placeholder="Tim kiem nguoi dung...">
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nguoi dung</th>
+                                        <th>Email</th>
+                                        <th>Rank</th>
+                                        <th>XP</th>
+                                        <th>Ngay tham gia</th>
+                                        <th>Trang thai</th>
+                                        <th style="text-align: right;">Thao tac</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="avatar">NA</div>
+                                                <span style="font-weight: 500;">Nguyen Van A</span>
+                                            </div>
+                                        </td>
+                                        <td>nguyenvana@example.com</td>
+                                        <td>
+                                            <span class="badge badge-yellow flex-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                                                    <path d="M4 22h16" />
+                                                    <path
+                                                        d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                                                    <path
+                                                        d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                                                </svg>
+                                                Gold
+                                            </span>
+                                        </td>
+                                        <td><span style="font-weight: 500;">2,450</span></td>
+                                        <td>15/01/2024</td>
+                                        <td><span class="badge badge-green">Hoat dong</span></td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon" onclick="openModal('editModal')"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                                    <path d="m15 5 4 4" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-orange">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="9" cy="7" r="4" />
+                                                    <line x1="17" x2="22" y1="8" y2="13" />
+                                                    <line x1="22" x2="17" y1="8" y2="13" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-destructive">
+                                                    <path d="M3 6h18" />
+                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="avatar">TB</div>
+                                                <span style="font-weight: 500;">Tran Thi B</span>
+                                            </div>
+                                        </td>
+                                        <td>tranthib@example.com</td>
+                                        <td>
+                                            <span class="badge badge-gray flex-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polygon
+                                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                                </svg>
+                                                Silver
+                                            </span>
+                                        </td>
+                                        <td><span style="font-weight: 500;">1,820</span></td>
+                                        <td>20/02/2024</td>
+                                        <td><span class="badge badge-green">Hoat dong</span></td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                                    <path d="m15 5 4 4" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-orange">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="9" cy="7" r="4" />
+                                                    <line x1="17" x2="22" y1="8" y2="13" />
+                                                    <line x1="22" x2="17" y1="8" y2="13" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-destructive">
+                                                    <path d="M3 6h18" />
+                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="avatar">LC</div>
+                                                <span style="font-weight: 500;">Le Van C</span>
+                                            </div>
+                                        </td>
+                                        <td>levanc@example.com</td>
+                                        <td>
+                                            <span class="badge badge-orange flex-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polygon
+                                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                                </svg>
+                                                Bronze
+                                            </span>
+                                        </td>
+                                        <td><span style="font-weight: 500;">950</span></td>
+                                        <td>10/03/2024</td>
+                                        <td><span class="badge badge-green">Hoat dong</span></td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                                    <path d="m15 5 4 4" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-orange">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="9" cy="7" r="4" />
+                                                    <line x1="17" x2="22" y1="8" y2="13" />
+                                                    <line x1="22" x2="17" y1="8" y2="13" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-destructive">
+                                                    <path d="M3 6h18" />
+                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="avatar">PD</div>
+                                                <span style="font-weight: 500;">Pham Thi D</span>
+                                            </div>
+                                        </td>
+                                        <td>phamthid@example.com</td>
+                                        <td>
+                                            <span class="badge badge-cyan flex-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                                                    <path d="M4 22h16" />
+                                                    <path
+                                                        d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                                                    <path
+                                                        d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                                                </svg>
+                                                Platinum
+                                            </span>
+                                        </td>
+                                        <td><span style="font-weight: 500;">3,500</span></td>
+                                        <td>01/12/2023</td>
+                                        <td><span class="badge badge-green">Hoat dong</span></td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                                    <path d="m15 5 4 4" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-orange">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="9" cy="7" r="4" />
+                                                    <line x1="17" x2="22" y1="8" y2="13" />
+                                                    <line x1="22" x2="17" y1="8" y2="13" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-destructive">
+                                                    <path d="M3 6h18" />
+                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="opacity-60">
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="avatar">HE</div>
+                                                <span style="font-weight: 500;">Hoang Van E</span>
+                                            </div>
+                                        </td>
+                                        <td>hoangvane@example.com</td>
+                                        <td>
+                                            <span class="badge badge-orange flex-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polygon
+                                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                                </svg>
+                                                Bronze
+                                            </span>
+                                        </td>
+                                        <td><span style="font-weight: 500;">450</span></td>
+                                        <td>05/04/2024</td>
+                                        <td><span class="badge badge-red">Bi cam</span></td>
+                                        <td class="table-actions">
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                                    <path d="m15 5 4 4" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-orange">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="9" cy="7" r="4" />
+                                                    <line x1="17" x2="22" y1="8" y2="13" />
+                                                    <line x1="22" x2="17" y1="8" y2="13" />
+                                                </svg></button>
+                                            <button class="btn btn-ghost btn-icon"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-destructive">
+                                                    <path d="M3 6h18" />
+                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                </svg></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="table-count">Hien thi 5 / 5 nguoi dung</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Chinh sua Nguoi dung</h3>
+                <p class="modal-description">Cap nhat thong tin nguoi dung</p>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Ten</label>
+                    <input type="text" class="form-input-simple" value="Nguyen Van A">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input-simple" value="nguyenvana@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Rank</label>
+                    <select class="form-select">
+                        <option value="Bronze">Bronze</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Gold" selected>Gold</option>
+                        <option value="Platinum">Platinum</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">XP</label>
+                    <input type="number" class="form-input-simple" value="2450">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('editModal')">Huy</button>
+                <button class="btn btn-primary" onclick="closeModal('editModal')">Cap nhat</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
