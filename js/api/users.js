@@ -1,33 +1,20 @@
 const usersApi = {
-    async getAll(params = {}) {
-        throw new Error('Users admin API not supported by server');
+    async getLeaderboardXP() {
+        return apiRequest('/leaderboard/xp');
     },
 
-    async getById(id) {
-        throw new Error('Users admin API not supported by server');
+    async getLeaderboardStreak() {
+        return apiRequest('/leaderboard/streak');
     },
 
-    async update(id, userData) {
-        throw new Error('Users admin API not supported by server');
+    async getProfile() {
+        return apiRequest('/profile');
     },
 
-    async delete(id) {
-        throw new Error('Users admin API not supported by server');
-    },
-
-    async ban(id) {
-        throw new Error('Users admin API not supported by server');
-    },
-
-    async unban(id) {
-        throw new Error('Users admin API not supported by server');
-    },
-
-    async getStats() {
-        throw new Error('Users admin API not supported by server');
-    },
-
-    async search(query) {
-        throw new Error('Users admin API not supported by server');
+    async updateProfile(data) {
+        return apiRequest('/profile', {
+            method: 'PUT',
+            body: JSON.stringify(data)
+        });
     }
 };

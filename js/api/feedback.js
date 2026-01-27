@@ -4,14 +4,21 @@ const feedbackApi = {
         return apiRequest(`/feedback/admin${query ? '?' + query : ''}`);
     },
 
-    async getById(id) {
-        return apiRequest(`/feedback/${id}`);
+    async getMy() {
+        return apiRequest('/feedback/my');
     },
 
-    async updateStatus(id, status) {
+    async create(feedback) {
+        return apiRequest('/feedback', {
+            method: 'POST',
+            body: JSON.stringify(feedback)
+        });
+    },
+
+    async update(id, feedback) {
         return apiRequest(`/feedback/${id}`, {
             method: 'PUT',
-            body: JSON.stringify({ status })
+            body: JSON.stringify(feedback)
         });
     },
 
@@ -21,9 +28,8 @@ const feedbackApi = {
         });
     },
 
-    async deleteAll(params = {}) {
-        const query = new URLSearchParams(params).toString();
-        return apiRequest(`/feedback/admin${query ? '?' + query : ''}`, {
+    async deleteAll() {
+        return apiRequest('/feedback/admin', {
             method: 'DELETE'
         });
     }

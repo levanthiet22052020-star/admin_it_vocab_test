@@ -75,7 +75,7 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <a href="index.html" class="btn btn-ghost"
+                <a href="#" onclick="logout(); return false;" class="btn btn-ghost"
                     style="width:100%; justify-content: flex-start; gap: 0.75rem;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -166,133 +166,15 @@
                                         <th style="text-align: right;">Thao tác</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="vocabularyTableBody">
                                     <tr>
-                                        <td style="font-weight: 500;">API</td>
-                                        <td class="truncate">Application Programming Interface - Giao diện lập trình ứng
-                                            dụng</td>
-                                        <td>Web Development</td>
-                                        <td><span class="badge badge-yellow">Intermediate</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon" onclick="openModal('editModal')"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"
-                                                onclick="if(confirm('Bạn có chắc muốn xóa từ vựng này?'))"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: 500;">Algorithm</td>
-                                        <td class="truncate">Thuật toán - Tập hợp các bước để giải quyết một vấn đề</td>
-                                        <td>Computer Science</td>
-                                        <td><span class="badge badge-green">Beginner</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: 500;">Database</td>
-                                        <td class="truncate">Cơ sở dữ liệu - Hệ thống tổ chức và lưu trữ dữ liệu</td>
-                                        <td>Database</td>
-                                        <td><span class="badge badge-green">Beginner</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: 500;">Framework</td>
-                                        <td class="truncate">Khung làm việc - Nền tảng phát triển phần mềm</td>
-                                        <td>Web Development</td>
-                                        <td><span class="badge badge-yellow">Intermediate</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: 500;">Docker</td>
-                                        <td class="truncate">Nền tảng containerization để đóng gói ứng dụng</td>
-                                        <td>DevOps</td>
-                                        <td><span class="badge badge-red">Advanced</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
+                                        <td colspan="5" style="text-align: center; padding: 2rem;">Đang tải dữ liệu...
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="table-count">Hiển thị 5 / 5 từ vựng</p>
+                        <p class="table-count">Đang tải...</p>
                     </div>
                 </div>
             </main>
@@ -426,6 +308,10 @@
         </div>
     </div>
 
+    <script src="js/api/config.js"></script>
+    <script src="js/api/auth.js"></script>
+    <script src="js/api/vocabulary.js"></script>
+    <script src="js/pages/vocabulary.js"></script>
     <script src="js/main.js"></script>
 </body>
 

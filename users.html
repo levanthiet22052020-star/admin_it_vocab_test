@@ -75,7 +75,7 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <a href="index.html" class="btn btn-ghost"
+                <a href="#" onclick="logout(); return false;" class="btn btn-ghost"
                     style="width:100%; justify-content: flex-start; gap: 0.75rem;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -116,47 +116,8 @@
                             <span class="leaderboard-icon leaderboard-icon-rank"></span>
                             <span class="leaderboard-title">Top 5 Rank Cao Nhất</span>
                         </div>
-                        <div class="leaderboard-list">
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-1">1</span>
-                                <span class="leaderboard-avatar" style="background: #ec4899;">VT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Vũ Thị F</span>
-                                    <span class="leaderboard-badge badge-platinum">Platinum</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-2">2</span>
-                                <span class="leaderboard-avatar" style="background: #8b5cf6;">NV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Ngô Văn I</span>
-                                    <span class="leaderboard-badge badge-platinum">Platinum</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-3">3</span>
-                                <span class="leaderboard-avatar" style="background: #f97316;">PT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Phạm Thị D</span>
-                                    <span class="leaderboard-badge badge-platinum">Platinum</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-4">4</span>
-                                <span class="leaderboard-avatar" style="background: #22c55e;">DV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Đặng Văn G</span>
-                                    <span class="leaderboard-badge badge-gold">Gold</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-5">5</span>
-                                <span class="leaderboard-avatar" style="background: #06b6d4;">DT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Định Thị K</span>
-                                    <span class="leaderboard-badge badge-gold">Gold</span>
-                                </div>
-                            </div>
+                        <div class="leaderboard-list" id="rankLeaderboard">
+                            <div class="leaderboard-loading">Đang tải dữ liệu...</div>
                         </div>
                     </div>
 
@@ -165,47 +126,8 @@
                             <span class="leaderboard-icon leaderboard-icon-xp"></span>
                             <span class="leaderboard-title">Top 5 XP Cao Nhất</span>
                         </div>
-                        <div class="leaderboard-list">
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-1">1</span>
-                                <span class="leaderboard-avatar" style="background: #ec4899;">VT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Vũ Thị F</span>
-                                    <span class="leaderboard-value value-xp">4,200 XP</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-2">2</span>
-                                <span class="leaderboard-avatar" style="background: #8b5cf6;">NV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Ngô Văn I</span>
-                                    <span class="leaderboard-value value-xp">3,800 XP</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-3">3</span>
-                                <span class="leaderboard-avatar" style="background: #f97316;">PT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Phạm Thị D</span>
-                                    <span class="leaderboard-value value-xp">3,500 XP</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-4">4</span>
-                                <span class="leaderboard-avatar" style="background: #22c55e;">DV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Đặng Văn G</span>
-                                    <span class="leaderboard-value value-xp">2,890 XP</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-5">5</span>
-                                <span class="leaderboard-avatar" style="background: #06b6d4;">DT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Định Thị K</span>
-                                    <span class="leaderboard-value value-xp">2,650 XP</span>
-                                </div>
-                            </div>
+                        <div class="leaderboard-list" id="xpLeaderboard">
+                            <div class="leaderboard-loading">Đang tải dữ liệu...</div>
                         </div>
                     </div>
 
@@ -214,47 +136,8 @@
                             <span class="leaderboard-icon leaderboard-icon-task"></span>
                             <span class="leaderboard-title">Top 5 Làm Nhiều Nhất</span>
                         </div>
-                        <div class="leaderboard-list">
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-1">1</span>
-                                <span class="leaderboard-avatar" style="background: #ec4899;">VT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Vũ Thị F</span>
-                                    <span class="leaderboard-value value-task">215 nhiệm vụ</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-2">2</span>
-                                <span class="leaderboard-avatar" style="background: #8b5cf6;">NV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Ngô Văn I</span>
-                                    <span class="leaderboard-value value-task">198 nhiệm vụ</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-3">3</span>
-                                <span class="leaderboard-avatar" style="background: #f97316;">PT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Phạm Thị D</span>
-                                    <span class="leaderboard-value value-task">189 nhiệm vụ</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-4">4</span>
-                                <span class="leaderboard-avatar" style="background: #22c55e;">DV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Đặng Văn G</span>
-                                    <span class="leaderboard-value value-task">156 nhiệm vụ</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-5">5</span>
-                                <span class="leaderboard-avatar" style="background: #06b6d4;">DT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Định Thị K</span>
-                                    <span class="leaderboard-value value-task">142 nhiệm vụ</span>
-                                </div>
-                            </div>
+                        <div class="leaderboard-list" id="taskLeaderboard">
+                            <div class="leaderboard-loading">Đang tải dữ liệu...</div>
                         </div>
                     </div>
 
@@ -263,47 +146,8 @@
                             <span class="leaderboard-icon leaderboard-icon-spirit"></span>
                             <span class="leaderboard-title">Top 5 Spirit Cao Nhất</span>
                         </div>
-                        <div class="leaderboard-list">
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-1">1</span>
-                                <span class="leaderboard-avatar" style="background: #ec4899;">VT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Vũ Thị F</span>
-                                    <span class="leaderboard-value value-spirit">1,580 spirit</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-2">2</span>
-                                <span class="leaderboard-avatar" style="background: #8b5cf6;">NV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Ngô Văn I</span>
-                                    <span class="leaderboard-value value-spirit">1,450 spirit</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-3">3</span>
-                                <span class="leaderboard-avatar" style="background: #f97316;">PT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Phạm Thị D</span>
-                                    <span class="leaderboard-value value-spirit">1,250 spirit</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-4">4</span>
-                                <span class="leaderboard-avatar" style="background: #22c55e;">DV</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Đặng Văn G</span>
-                                    <span class="leaderboard-value value-spirit">1,050 spirit</span>
-                                </div>
-                            </div>
-                            <div class="leaderboard-item">
-                                <span class="leaderboard-rank rank-5">5</span>
-                                <span class="leaderboard-avatar" style="background: #06b6d4;">DT</span>
-                                <div class="leaderboard-info">
-                                    <span class="leaderboard-name">Định Thị K</span>
-                                    <span class="leaderboard-value value-spirit">950 spirit</span>
-                                </div>
-                            </div>
+                        <div class="leaderboard-list" id="streakLeaderboard">
+                            <div class="leaderboard-loading">Đang tải dữ liệu...</div>
                         </div>
                     </div>
                 </div>
@@ -355,287 +199,15 @@
                                         <th style="text-align: right;">Thao tác</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="userTableBody">
                                     <tr>
-                                        <td>
-                                            <div class="user-cell">
-                                                <div class="avatar">NA</div>
-                                                <span style="font-weight: 500;">Nguyễn Văn A</span>
-                                            </div>
-                                        </td>
-                                        <td>nguyenvana@example.com</td>
-                                        <td>
-                                            <span class="badge badge-yellow flex-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                                                    <path d="M4 22h16" />
-                                                    <path
-                                                        d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-                                                    <path
-                                                        d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
-                                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-                                                </svg>
-                                                Gold
-                                        </td>
-                                        <td><span style="font-weight: 500;">2,450</span></td>
-                                        <td><span class="spirit-value">850</span></td>
-                                        <td><span class="task-value">125</span></td>
-                                        <td>15/01/2024</td>
-                                        <td><span class="badge badge-green">Hoạt động</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon" onclick="openModal('editModal')"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-orange">
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                    <circle cx="9" cy="7" r="4" />
-                                                    <line x1="17" x2="22" y1="8" y2="13" />
-                                                    <line x1="22" x2="17" y1="8" y2="13" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="user-cell">
-                                                <div class="avatar">TB</div>
-                                                <span style="font-weight: 500;">Trần Thị B</span>
-                                            </div>
-                                        </td>
-                                        <td>tranthib@example.com</td>
-                                        <td>
-                                            <span class="badge badge-gray flex-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <polygon
-                                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                                </svg>
-                                                Silver
-                                            </span>
-                                        </td>
-                                        <td><span style="font-weight: 500;">1,820</span></td>
-                                        <td><span class="spirit-value">920</span></td>
-                                        <td><span class="task-value">98</span></td>
-                                        <td>20/02/2024</td>
-                                        <td><span class="badge badge-green">Hoat dong</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-orange">
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                    <circle cx="9" cy="7" r="4" />
-                                                    <line x1="17" x2="22" y1="8" y2="13" />
-                                                    <line x1="22" x2="17" y1="8" y2="13" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="user-cell">
-                                                <div class="avatar">LC</div>
-                                                <span style="font-weight: 500;">Lê Văn C</span>
-                                            </div>
-                                        </td>
-                                        <td>levanc@example.com</td>
-                                        <td>
-                                            <span class="badge badge-orange flex-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <polygon
-                                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                                </svg>
-                                                Bronze
-                                            </span>
-                                        </td>
-                                        <td><span style="font-weight: 500;">950</span></td>
-                                        <td><span class="spirit-value">450</span></td>
-                                        <td><span class="task-value">67</span></td>
-                                        <td>10/03/2024</td>
-                                        <td><span class="badge badge-green">Hoat dong</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-orange">
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                    <circle cx="9" cy="7" r="4" />
-                                                    <line x1="17" x2="22" y1="8" y2="13" />
-                                                    <line x1="22" x2="17" y1="8" y2="13" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="user-cell">
-                                                <div class="avatar">PD</div>
-                                                <span style="font-weight: 500;">Phạm Thị D</span>
-                                            </div>
-                                        </td>
-                                        <td>phamthid@example.com</td>
-                                        <td>
-                                            <span class="badge badge-cyan flex-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                                                    <path d="M4 22h16" />
-                                                    <path
-                                                        d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-                                                    <path
-                                                        d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
-                                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-                                                </svg>
-                                                Platinum
-                                            </span>
-                                        </td>
-                                        <td><span style="font-weight: 500;">3,500</span></td>
-                                        <td><span class="spirit-value">1,250</span></td>
-                                        <td><span class="task-value">189</span></td>
-                                        <td>01/12/2023</td>
-                                        <td><span class="badge badge-green">Hoat dong</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-orange">
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                    <circle cx="9" cy="7" r="4" />
-                                                    <line x1="17" x2="22" y1="8" y2="13" />
-                                                    <line x1="22" x2="17" y1="8" y2="13" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr class="opacity-60">
-                                        <td>
-                                            <div class="user-cell">
-                                                <div class="avatar">HE</div>
-                                                <span style="font-weight: 500;">Hoàng Văn E</span>
-                                            </div>
-                                        </td>
-                                        <td>hoangvane@example.com</td>
-                                        <td>
-                                            <span class="badge badge-orange flex-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <polygon
-                                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                                </svg>
-                                                Bronze
-                                            </span>
-                                        </td>
-                                        <td><span style="font-weight: 500;">450</span></td>
-                                        <td><span class="spirit-value">180</span></td>
-                                        <td><span class="task-value">34</span></td>
-                                        <td>05/04/2024</td>
-                                        <td><span class="badge badge-red">Bi cam</span></td>
-                                        <td class="table-actions">
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                                    <path d="m15 5 4 4" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-orange">
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                    <circle cx="9" cy="7" r="4" />
-                                                    <line x1="17" x2="22" y1="8" y2="13" />
-                                                    <line x1="22" x2="17" y1="8" y2="13" />
-                                                </svg></button>
-                                            <button class="btn btn-ghost btn-icon"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="text-destructive">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                </svg></button>
+                                        <td colspan="9" style="text-align: center; padding: 2rem;">Đang tải dữ liệu...
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="table-count">Hiển thị 5 / 5 người dùng</p>
+                        <p class="table-count">Đang tải...</p>
                     </div>
                 </div>
             </main>
@@ -678,6 +250,10 @@
         </div>
     </div>
 
+    <script src="js/api/config.js"></script>
+    <script src="js/api/auth.js"></script>
+    <script src="js/api/leaderboard.js"></script>
+    <script src="js/pages/users.js"></script>
     <script src="js/main.js"></script>
 </body>
 

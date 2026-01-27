@@ -8,20 +8,27 @@ const vocabularyApi = {
         return apiRequest(`/dictionary/words/${id}`);
     },
 
-    async create(vocabulary) {
-        throw new Error('Create vocabulary not supported by server API');
-    },
-
-    async update(id, vocabulary) {
-        throw new Error('Update vocabulary not supported by server API');
-    },
-
-    async delete(id) {
-        throw new Error('Delete vocabulary not supported by server API');
-    },
-
     async getPinned(params = {}) {
         const query = new URLSearchParams(params).toString();
         return apiRequest(`/dictionary/pinned${query ? '?' + query : ''}`);
+    },
+
+    async pin(wordId) {
+        return apiRequest(`/dictionary/words/${wordId}/pin`, {
+            method: 'PUT'
+        });
+    },
+
+    async unpin(wordId) {
+        return apiRequest(`/dictionary/words/${wordId}/pin`, {
+            method: 'DELETE'
+        });
+    },
+
+    async updateNote(wordId, note) {
+        return apiRequest(`/dictionary/words/${wordId}/note`, {
+            method: 'PUT',
+            body: JSON.stringify({ note })
+        });
     }
 };
