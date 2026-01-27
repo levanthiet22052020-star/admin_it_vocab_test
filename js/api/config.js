@@ -1,5 +1,6 @@
 const API_CONFIG = {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://it-vocab-test-server.onrender.com',
+    localURL: 'http://localhost:5000',
     timeout: 15000
 };
 
@@ -11,8 +12,12 @@ const tokenStore = {
         return localStorage.getItem('refreshToken');
     },
     setTokens(tokens) {
-        localStorage.setItem('accessToken', tokens.accessToken);
-        localStorage.setItem('refreshToken', tokens.refreshToken);
+        if (tokens.accessToken) {
+            localStorage.setItem('accessToken', tokens.accessToken);
+        }
+        if (tokens.refreshToken) {
+            localStorage.setItem('refreshToken', tokens.refreshToken);
+        }
     },
     clearTokens() {
         localStorage.removeItem('accessToken');
@@ -65,14 +70,14 @@ async function handleResponse(response) {
 }
 
 async function refreshToken() {
-    const refreshToken = tokenStore.getRefreshToken();
-    if (!refreshToken) return false;
+    const refreshTokenValue = tokenStore.getRefreshToken();
+    if (!refreshTokenValue) return false;
 
     try {
         const response = await fetch(`${API_CONFIG.baseURL}/auth/refresh`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ refreshToken })
+            body: JSON.stringify({ refreshToken: refreshTokenValue })
         });
 
         if (response.ok) {

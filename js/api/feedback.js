@@ -1,35 +1,30 @@
 const feedbackApi = {
     async getAll(params = {}) {
         const query = new URLSearchParams(params).toString();
-        return apiRequest(`/admin/feedback${query ? '?' + query : ''}`);
+        return apiRequest(`/feedback/admin${query ? '?' + query : ''}`);
     },
 
     async getById(id) {
-        return apiRequest(`/admin/feedback/${id}`);
+        return apiRequest(`/feedback/${id}`);
     },
 
     async updateStatus(id, status) {
-        return apiRequest(`/admin/feedback/${id}/status`, {
+        return apiRequest(`/feedback/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ status })
         });
     },
 
     async delete(id) {
-        return apiRequest(`/admin/feedback/${id}`, {
+        return apiRequest(`/feedback/${id}`, {
             method: 'DELETE'
         });
     },
 
-    async getStats() {
-        return apiRequest('/admin/feedback/stats');
-    },
-
-    async getByStatus(status) {
-        return apiRequest(`/admin/feedback?status=${status}`);
-    },
-
-    async getByCategory(category) {
-        return apiRequest(`/admin/feedback?category=${category}`);
+    async deleteAll(params = {}) {
+        const query = new URLSearchParams(params).toString();
+        return apiRequest(`/feedback/admin${query ? '?' + query : ''}`, {
+            method: 'DELETE'
+        });
     }
 };

@@ -1,43 +1,33 @@
 const usersApi = {
     async getAll(params = {}) {
-        const query = new URLSearchParams(params).toString();
-        return apiRequest(`/admin/users${query ? '?' + query : ''}`);
+        throw new Error('Users admin API not supported by server');
     },
 
     async getById(id) {
-        return apiRequest(`/admin/users/${id}`);
+        throw new Error('Users admin API not supported by server');
     },
 
     async update(id, userData) {
-        return apiRequest(`/admin/users/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(userData)
-        });
+        throw new Error('Users admin API not supported by server');
     },
 
     async delete(id) {
-        return apiRequest(`/admin/users/${id}`, {
-            method: 'DELETE'
-        });
+        throw new Error('Users admin API not supported by server');
     },
 
     async ban(id) {
-        return apiRequest(`/admin/users/${id}/ban`, {
-            method: 'POST'
-        });
+        throw new Error('Users admin API not supported by server');
     },
 
     async unban(id) {
-        return apiRequest(`/admin/users/${id}/unban`, {
-            method: 'POST'
-        });
+        throw new Error('Users admin API not supported by server');
     },
 
     async getStats() {
-        return apiRequest('/admin/users/stats');
+        throw new Error('Users admin API not supported by server');
     },
 
     async search(query) {
-        return apiRequest(`/admin/users/search?q=${encodeURIComponent(query)}`);
+        throw new Error('Users admin API not supported by server');
     }
 };

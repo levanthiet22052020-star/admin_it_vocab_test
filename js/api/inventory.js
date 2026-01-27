@@ -1,44 +1,35 @@
 const inventoryApi = {
     async getAll(params = {}) {
         const query = new URLSearchParams(params).toString();
-        return apiRequest(`/admin/inventory${query ? '?' + query : ''}`);
+        return apiRequest(`/inventory${query ? '?' + query : ''}`);
     },
 
     async getById(id) {
-        return apiRequest(`/admin/inventory/${id}`);
+        throw new Error('Get inventory item by ID not supported by server API');
     },
 
     async create(item) {
-        return apiRequest('/admin/inventory', {
-            method: 'POST',
-            body: JSON.stringify(item)
-        });
+        throw new Error('Create inventory item not supported by server API');
     },
 
     async update(id, item) {
-        return apiRequest(`/admin/inventory/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(item)
-        });
+        throw new Error('Update inventory item not supported by server API');
     },
 
     async delete(id) {
-        return apiRequest(`/admin/inventory/${id}`, {
-            method: 'DELETE'
+        throw new Error('Delete inventory item not supported by server API');
+    },
+
+    async useItem(itemId) {
+        return apiRequest('/inventory/use', {
+            method: 'POST',
+            body: JSON.stringify({ itemId })
         });
     },
 
-    async toggleVisibility(id) {
-        return apiRequest(`/admin/inventory/${id}/toggle-visibility`, {
+    async unequipSkin() {
+        return apiRequest('/inventory/unequip-skin', {
             method: 'POST'
         });
-    },
-
-    async getStats() {
-        return apiRequest('/admin/inventory/stats');
-    },
-
-    async getByType(type) {
-        return apiRequest(`/admin/inventory?type=${type}`);
     }
 };

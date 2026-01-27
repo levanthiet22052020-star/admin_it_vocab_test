@@ -1,56 +1,27 @@
 const vocabularyApi = {
     async getAll(params = {}) {
         const query = new URLSearchParams(params).toString();
-        return apiRequest(`/admin/vocabulary${query ? '?' + query : ''}`);
+        return apiRequest(`/dictionary/words${query ? '?' + query : ''}`);
     },
 
     async getById(id) {
-        return apiRequest(`/admin/vocabulary/${id}`);
+        return apiRequest(`/dictionary/words/${id}`);
     },
 
     async create(vocabulary) {
-        return apiRequest('/admin/vocabulary', {
-            method: 'POST',
-            body: JSON.stringify(vocabulary)
-        });
+        throw new Error('Create vocabulary not supported by server API');
     },
 
     async update(id, vocabulary) {
-        return apiRequest(`/admin/vocabulary/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(vocabulary)
-        });
+        throw new Error('Update vocabulary not supported by server API');
     },
 
     async delete(id) {
-        return apiRequest(`/admin/vocabulary/${id}`, {
-            method: 'DELETE'
-        });
+        throw new Error('Delete vocabulary not supported by server API');
     },
 
-    async import(file) {
-        const formData = new FormData();
-        formData.append('file', file);
-
-        const token = tokenStore.getAccessToken();
-        const response = await fetch(`${API_CONFIG.baseURL}/admin/vocabulary/import`, {
-            method: 'POST',
-            headers: {
-                ...(token && { 'Authorization': `Bearer ${token}` })
-            },
-            body: formData
-        });
-        return handleResponse(response);
-    },
-
-    async export(format = 'json', filters = {}) {
-        const params = new URLSearchParams({ format, ...filters }).toString();
-        const token = tokenStore.getAccessToken();
-        const response = await fetch(`${API_CONFIG.baseURL}/admin/vocabulary/export?${params}`, {
-            headers: {
-                ...(token && { 'Authorization': `Bearer ${token}` })
-            }
-        });
-        return response.blob();
+    async getPinned(params = {}) {
+        const query = new URLSearchParams(params).toString();
+        return apiRequest(`/dictionary/pinned${query ? '?' + query : ''}`);
     }
 };

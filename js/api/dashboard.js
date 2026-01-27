@@ -1,17 +1,31 @@
 const dashboardApi = {
     async getStats() {
-        return apiRequest('/admin/dashboard/stats');
+        return {
+            totalUsers: 0,
+            totalTopics: 0,
+            totalVocabulary: 0,
+            totalQuestions: 0,
+            message: 'Dashboard stats API not supported by server'
+        };
     },
 
     async getRecentActivities(limit = 10) {
-        return apiRequest(`/admin/dashboard/activities?limit=${limit}`);
+        return {
+            activities: [],
+            message: 'Activities API not supported by server'
+        };
     },
 
     async getChartData(type, period = 'week') {
-        return apiRequest(`/admin/dashboard/charts/${type}?period=${period}`);
+        return {
+            data: [],
+            message: 'Chart data API not supported by server'
+        };
     },
 
     async getOverview() {
-        return apiRequest('/admin/dashboard/overview');
+        return {
+            message: 'Overview API not supported by server'
+        };
     }
 };
