@@ -59,3 +59,62 @@ function logout() {
     localStorage.removeItem('user');
     window.location.href = 'index.html';
 }
+
+var DataWatcher = {
+    intervals: {},
+    lastDataHash: {},
+
+    hashData: function (data) {
+        return JSON.stringify(data).length + '_' + (data.length || Object.keys(data).length || 0);
+    },
+
+    watch: function (name, fetchFn, onChangeFn, intervalMs) {
+        var self = this;
+        intervalMs = intervalMs || 10000;
+
+        if (this.intervals[name]) {
+            clearInterval(this.intervals[name]);
+        }
+
+        fetchFn().then(function (data) {
+            self.lastDataHash[name] = self.hashData(data);
+        }).catch(function () { });
+
+        this.intervals[name] = setInterval(function () {
+            fetchFn().then(function (data) {
+                var newHash = self.hashData(data);
+                if (self.lastDataHash[name] && self.lastDataHash[name] !== newHash) {
+                    console.log('[DataWatcher] Data changed for:', name);
+                    self.lastDataHash[name] = newHash;
+                    onChangeFn(data);
+                } else if (!self.lastDataHash[name]) {
+                    self.lastDataHash[name] = newHash;
+                }
+            }).catch(function (err) {
+                console.error('[DataWatcher] Error fetching:', name, err);
+            });
+        }, intervalMs);
+
+        console.log('[DataWatcher] Watching:', name, 'every', intervalMs, 'ms');
+    },
+
+    unwatch: function (name) {
+        if (this.intervals[name]) {
+            clearInterval(this.intervals[name]);
+            delete this.intervals[name];
+            delete this.lastDataHash[name];
+            console.log('[DataWatcher] Stopped watching:', name);
+        }
+    },
+
+    unwatchAll: function () {
+        var self = this;
+        Object.keys(this.intervals).forEach(function (name) {
+            self.unwatch(name);
+        });
+    }
+};
+
+window.addEventListener('beforeunload', function () {
+    DataWatcher.unwatchAll();
+});

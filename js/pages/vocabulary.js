@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function () {
     requireAuth();
     await loadVocabulary();
+
+    DataWatcher.watch('vocabulary', function () {
+        return vocabularyApi.getAll().then(function (data) { return data.items || data.words || data || []; });
+    }, function (data) {
+        allWords = data;
+        renderVocabularyTable(data);
+        updateStats(data.length);
+    }, 15000);
 });
 
 let allWords = [];

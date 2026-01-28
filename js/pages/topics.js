@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function () {
     requireAuth();
     await loadTopics();
+
+    DataWatcher.watch('topics', function () {
+        return topicsApi.getAll().then(function (data) { return data.topics || data.items || data || []; });
+    }, function (data) {
+        allTopics = data;
+        renderTopicsTable(data);
+        updateStats(data.length);
+    }, 15000);
 });
 
 let allTopics = [];

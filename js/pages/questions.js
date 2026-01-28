@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', async function () {
     requireAuth();
     await loadQuestions();
+
+    DataWatcher.watch('questions', function () {
+        return questionsApi.getAll().then(function (data) { return data.quizzes || data.items || data || []; });
+    }, function (data) {
+        loadQuestions();
+    }, 15000);
 });
 
 let allQuestions = [];

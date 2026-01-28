@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function () {
     requireAuth();
     await loadData();
+
+    DataWatcher.watch('inventory', function () {
+        return rewardApi.getRoadmap().then(function (data) { return data.milestones || data.rewards || data.items || []; });
+    }, function (data) {
+        allItems = data;
+        renderItemsGrid(data);
+        updateStats(data);
+    }, 15000);
 });
 
 let allItems = [];

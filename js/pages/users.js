@@ -2,6 +2,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     requireAuth();
     await loadLeaderboards();
     await loadUsers();
+
+    DataWatcher.watch('users', function () {
+        return leaderboardApi.getXP().then(function (data) { return data.userList || []; });
+    }, function (data) {
+        allUsers = data;
+        renderUserTable(data);
+        loadLeaderboards();
+    }, 15000);
 });
 
 let allUsers = [];
@@ -41,7 +49,7 @@ function renderXPLeaderboard(users) {
     container.innerHTML = sorted.slice(0, 5).map((user, index) => `
         <div class="leaderboard-item">
             <span class="leaderboard-rank rank-${index + 1}">${index + 1}</span>
-            <span class="leaderboard-avatar" style="background: ${getAvatarColor(index)};">${getInitials(user.name)}</span>
+            ${user.avatarURL ? `<img class="leaderboard-avatar" src="${user.avatarURL}" alt="avatar">` : `<span class="leaderboard-avatar" style="background: ${getAvatarColor(index)};">${getInitials(user.name)}</span>`}
             <div class="leaderboard-info">
                 <span class="leaderboard-name">${user.name || 'Người dùng'}</span>
                 <span class="leaderboard-value value-xp">${formatNumber(user.value)} XP</span>
@@ -87,10 +95,10 @@ function renderRankLeaderboard(users) {
     container.innerHTML = sorted.slice(0, 5).map((user, index) => `
         <div class="leaderboard-item">
             <span class="leaderboard-rank rank-${index + 1}">${index + 1}</span>
-            <span class="leaderboard-avatar" style="background: ${getAvatarColor(index)};">${getInitials(user.name)}</span>
+            ${user.avatarURL ? `<img class="leaderboard-avatar" src="${user.avatarURL}" alt="avatar">` : `<span class="leaderboard-avatar" style="background: ${getAvatarColor(index)};">${getInitials(user.name)}</span>`}
             <div class="leaderboard-info">
                 <span class="leaderboard-name">${user.name || 'Người dùng'}</span>
-                <span class="leaderboard-badge ${getRankBadgeClass(user.rankLevel)}">${getRankName(user.rankLevel)}</span>
+                <span class="leaderboard-value value-rank">Cấp ${user.rankLevel || 1}</span>
             </div>
         </div>
     `).join('');
@@ -149,7 +157,6 @@ function renderUserStats(users) {
     const totalUsers = users.length;
     const activeUsers = users.filter(u => u.status !== 'BANNED').length;
     const bannedUsers = users.filter(u => u.status === 'BANNED').length;
-    const platinumUsers = users.filter(u => u.rankLevel >= 4).length;
 
     const statsContainer = document.querySelector('.mini-stats');
     if (statsContainer) {
@@ -166,10 +173,6 @@ function renderUserStats(users) {
                 <p class="mini-stat-value red">${bannedUsers}</p>
                 <p class="mini-stat-label">Bị cấm</p>
             </div>
-            <div class="mini-stat purple">
-                <p class="mini-stat-value purple">${platinumUsers}</p>
-                <p class="mini-stat-label">Platinum</p>
-            </div>
         `;
     }
 }
@@ -179,54 +182,29 @@ function renderUserTable(users) {
     if (!tbody) return;
 
     if (users.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; padding: 2rem;">Không có người dùng nào</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 2rem;">Không có người dùng nào</td></tr>`;
         return;
     }
 
     tbody.innerHTML = users.map(user => {
         const status = getUserStatus(user);
         const statusBadge = getStatusBadge(status);
+        const rankLevel = user.rankLevel || 1;
+        const avatarHtml = user.avatarURL
+            ? `<img class="avatar" src="${user.avatarURL}" alt="avatar" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">`
+            : `<div class="avatar">${getInitials(user.name)}</div>`;
 
         return `
         <tr>
             <td>
                 <div class="user-cell">
-                    <div class="avatar">${getInitials(user.name)}</div>
+                    ${avatarHtml}
                     <span style="font-weight: 500;">${user.name || 'Người dùng'}</span>
                 </div>
             </td>
-            <td>${user.email || '-'}</td>
-            <td>${getRankBadge(user.rankLevel)}</td>
+            <td><span style="font-weight: 500;">Cấp ${rankLevel}</span></td>
             <td><span style="font-weight: 500;">${formatNumber(user.value || 0)}</span></td>
-            <td><span class="spirit-value">${formatNumber(user.spirit || 0)}</span></td>
-            <td><span class="task-value">${formatNumber(user.tasksCompleted || Math.floor((user.value || 0) / 20))}</span></td>
-            <td>${formatDate(user.createdAt)}</td>
             <td>${statusBadge}</td>
-            <td class="table-actions">
-                <button class="btn btn-ghost btn-icon" onclick="editUser('${user.userID}')" title="Sửa thông tin">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                        <path d="m15 5 4 4"/>
-                    </svg>
-                </button>
-                <button class="btn btn-ghost btn-icon text-orange" onclick="banUser('${user.userID}', '${user.name}')" title="Cấm người dùng">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <line x1="17" x2="22" y1="8" y2="13"/>
-                        <line x1="22" x2="17" y1="8" y2="13"/>
-                    </svg>
-                </button>
-                <button class="btn btn-ghost btn-icon text-red" onclick="deleteUser('${user.userID}', '${user.name}')" title="Xóa tài khoản">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 6h18"/>
-                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                        <line x1="10" x2="10" y1="11" y2="17"/>
-                        <line x1="14" x2="14" y1="11" y2="17"/>
-                    </svg>
-                </button>
-            </td>
         </tr>
     `}).join('');
 

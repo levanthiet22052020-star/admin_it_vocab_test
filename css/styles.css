@@ -1100,7 +1100,7 @@ tr:hover {
 
 .mini-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     width: 100%;
 }
@@ -1331,7 +1331,7 @@ tr:hover {
 
 .leaderboard-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
@@ -1459,6 +1459,7 @@ tr:hover {
     font-weight: 600;
     color: #ffffff;
     flex-shrink: 0;
+    object-fit: cover;
 }
 
 .leaderboard-info {

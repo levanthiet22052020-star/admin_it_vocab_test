@@ -1,7 +1,7 @@
 const topicsApi = {
     async getAll(params = {}) {
         const query = new URLSearchParams(params).toString();
-        return apiRequest(`/topic/topics${query ? '?' + query : ''}`);
+        return apiRequest(`/admin/topics${query ? '?' + query : ''}`);
     },
 
     async getById(id) {

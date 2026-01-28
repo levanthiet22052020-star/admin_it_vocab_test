@@ -1,7 +1,7 @@
 const questionsApi = {
     async getAll(params = {}) {
         const query = new URLSearchParams(params).toString();
-        return apiRequest(`/quiz/quizzes${query ? '?' + query : ''}`);
+        return apiRequest(`/admin/questions${query ? '?' + query : ''}`);
     },
 
     async getByTopic(topicId) {

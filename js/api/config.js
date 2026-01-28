@@ -1,6 +1,6 @@
 const API_CONFIG = {
-    baseURL: 'https://it-vocab-test-server.onrender.com',
-    localURL: 'http://localhost:5000',
+    baseURL: 'http://localhost:5000',
+    productionURL: 'https://it-vocab-test-server.onrender.com',
     timeout: 15000
 };
 

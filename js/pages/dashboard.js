@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', async function () {
     requireAuth();
     await loadDashboardData();
+
+    DataWatcher.watch('dashboard', function () {
+        return leaderboardApi.getXP().then(function (data) { return data.userList || []; });
+    }, function () {
+        loadDashboardData();
+    }, 30000);
 });
 
 async function loadDashboardData() {
@@ -62,24 +68,26 @@ function renderActiveUsersChart(users) {
         date.setDate(today.getDate() - i);
         const dayName = dayNamesVi[date.getDay()];
         const dayNum = date.getDate();
-        dayLabels.push({ label: `${dayName} ${dayNum}`, date: date });
+        const monthNum = date.getMonth() + 1;
+        dayLabels.push({ label: `${dayNum}/${monthNum}`, date: date, isToday: i === 0 });
     }
 
     const totalUsers = users.length || 1;
 
     const dayData = dayLabels.map((item, index) => {
-        const baseValue = Math.floor(totalUsers * (0.3 + Math.random() * 0.7));
-        return { day: item.label, value: Math.max(baseValue, 1) };
+        const value = item.isToday ? totalUsers : 0;
+        return { day: item.label, value: value, isToday: item.isToday };
     });
 
     const maxValue = Math.max(...dayData.map(d => d.value), 1);
 
     container.innerHTML = dayData.map(item => {
-        const height = Math.max((item.value / maxValue) * 180, 20);
+        const height = item.value > 0 ? Math.max((item.value / maxValue) * 180, 20) : 10;
+        const bgColor = item.isToday ? '#00B4D8' : '#e0e0e0';
         return `
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                <div style="background: #00B4D8; width: 40px; height: ${height}px; border-radius: 8px 8px 0 0;" title="${item.value} người dùng"></div>
-                <span style="font-size: 0.65rem; color: #717182; white-space: nowrap;">${item.day}</span>
+                <div style="background: ${bgColor}; width: 40px; height: ${height}px; border-radius: 8px 8px 0 0;" title="${item.value} người dùng"></div>
+                <span style="font-size: 0.65rem; color: ${item.isToday ? '#00B4D8' : '#717182'}; white-space: nowrap; font-weight: ${item.isToday ? '600' : '400'};">${item.day}</span>
             </div>
         `;
     }).join('');
@@ -89,9 +97,9 @@ function renderVocabGrowthChart(wordsData) {
     const container = document.getElementById('vocabGrowthChart');
     if (!container) return;
 
-    const totalWords = wordsData.total || wordsData.items?.length || 100;
+    const totalWords = wordsData.total || wordsData.items?.length || 0;
 
-    const monthNamesVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'];
+    const monthNamesVi = ['Th.1', 'Th.2', 'Th.3', 'Th.4', 'Th.5', 'Th.6', 'Th.7', 'Th.8', 'Th.9', 'Th.10', 'Th.11', 'Th.12'];
     const today = new Date();
     const monthLabels = [];
 
@@ -100,12 +108,12 @@ function renderVocabGrowthChart(wordsData) {
         date.setMonth(today.getMonth() - i);
         const monthName = monthNamesVi[date.getMonth()];
         const year = date.getFullYear();
-        monthLabels.push(`${monthName}/${year.toString().slice(-2)}`);
+        monthLabels.push({ label: `${monthName}/${year.toString().slice(-2)}`, isCurrentMonth: i === 0 });
     }
 
-    const growthData = monthLabels.map((month, index) => {
-        const value = Math.floor(totalWords * ((index + 1) / monthLabels.length) * (0.7 + Math.random() * 0.3));
-        return { month, value: Math.max(value, 10) };
+    const growthData = monthLabels.map((item, index) => {
+        const value = item.isCurrentMonth ? totalWords : 0;
+        return { month: item.label, value: value, isCurrentMonth: item.isCurrentMonth };
     });
 
     const maxValue = Math.max(...growthData.map(d => d.value), 1);
@@ -123,12 +131,15 @@ function renderVocabGrowthChart(wordsData) {
     const circles = growthData.map((item, index) => {
         const x = padding + index * xStep;
         const y = chartHeight - (item.value / maxValue) * (chartHeight - 40);
-        return `<circle cx="${x}" cy="${y}" r="5" fill="#9038FF" title="${item.value} từ"/>`;
+        const fillColor = item.isCurrentMonth ? '#9038FF' : '#d0d0d0';
+        return `<circle cx="${x}" cy="${y}" r="${item.isCurrentMonth ? 6 : 4}" fill="${fillColor}" title="${item.value} từ"/>`;
     }).join('');
 
     const labels = growthData.map((item, index) => {
         const x = padding + index * xStep;
-        return `<text x="${x}" y="${chartHeight + 15}" font-size="9" fill="#717182" text-anchor="middle">${item.month}</text>`;
+        const fontWeight = item.isCurrentMonth ? 'bold' : 'normal';
+        const fillColor = item.isCurrentMonth ? '#9038FF' : '#717182';
+        return `<text x="${x}" y="${chartHeight + 15}" font-size="9" fill="${fillColor}" text-anchor="middle" font-weight="${fontWeight}">${item.month}</text>`;
     }).join('');
 
     container.innerHTML = `

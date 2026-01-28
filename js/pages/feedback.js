@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function () {
     requireAuth();
     await loadFeedback();
+
+    DataWatcher.watch('feedback', function () {
+        return feedbackApi.getAll().then(function (data) { return data.items || data.feedbacks || data.list || []; });
+    }, function (data) {
+        allFeedback = data;
+        renderFeedbackTable(data);
+        updateStats(data);
+    }, 15000);
 });
 
 let allFeedback = [];
