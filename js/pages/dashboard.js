@@ -53,12 +53,23 @@ function renderActiveUsersChart(users) {
     const container = document.getElementById('activeUsersChart');
     if (!container) return;
 
-    const dayNames = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+    const today = new Date();
+    const dayLabels = [];
+    const dayNamesVi = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date(today);
+        date.setDate(today.getDate() - i);
+        const dayName = dayNamesVi[date.getDay()];
+        const dayNum = date.getDate();
+        dayLabels.push({ label: `${dayName} ${dayNum}`, date: date });
+    }
+
     const totalUsers = users.length || 1;
 
-    const dayData = dayNames.map((day, index) => {
+    const dayData = dayLabels.map((item, index) => {
         const baseValue = Math.floor(totalUsers * (0.3 + Math.random() * 0.7));
-        return { day, value: Math.max(baseValue, 1) };
+        return { day: item.label, value: Math.max(baseValue, 1) };
     });
 
     const maxValue = Math.max(...dayData.map(d => d.value), 1);
@@ -68,7 +79,7 @@ function renderActiveUsersChart(users) {
         return `
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
                 <div style="background: #00B4D8; width: 40px; height: ${height}px; border-radius: 8px 8px 0 0;" title="${item.value} người dùng"></div>
-                <span style="font-size: 0.75rem; color: #717182;">${item.day}</span>
+                <span style="font-size: 0.65rem; color: #717182; white-space: nowrap;">${item.day}</span>
             </div>
         `;
     }).join('');
@@ -80,16 +91,27 @@ function renderVocabGrowthChart(wordsData) {
 
     const totalWords = wordsData.total || wordsData.items?.length || 100;
 
-    const months = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'];
-    const growthData = months.map((month, index) => {
-        const value = Math.floor(totalWords * ((index + 1) / months.length) * (0.7 + Math.random() * 0.3));
+    const monthNamesVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'];
+    const today = new Date();
+    const monthLabels = [];
+
+    for (let i = 5; i >= 0; i--) {
+        const date = new Date(today);
+        date.setMonth(today.getMonth() - i);
+        const monthName = monthNamesVi[date.getMonth()];
+        const year = date.getFullYear();
+        monthLabels.push(`${monthName}/${year.toString().slice(-2)}`);
+    }
+
+    const growthData = monthLabels.map((month, index) => {
+        const value = Math.floor(totalWords * ((index + 1) / monthLabels.length) * (0.7 + Math.random() * 0.3));
         return { month, value: Math.max(value, 10) };
     });
 
     const maxValue = Math.max(...growthData.map(d => d.value), 1);
     const chartWidth = 400;
     const chartHeight = 180;
-    const padding = 20;
+    const padding = 30;
     const xStep = (chartWidth - padding * 2) / (growthData.length - 1);
 
     const points = growthData.map((item, index) => {
@@ -106,7 +128,7 @@ function renderVocabGrowthChart(wordsData) {
 
     const labels = growthData.map((item, index) => {
         const x = padding + index * xStep;
-        return `<text x="${x}" y="${chartHeight + 15}" font-size="10" fill="#717182" text-anchor="middle">${item.month}</text>`;
+        return `<text x="${x}" y="${chartHeight + 15}" font-size="9" fill="#717182" text-anchor="middle">${item.month}</text>`;
     }).join('');
 
     container.innerHTML = `
