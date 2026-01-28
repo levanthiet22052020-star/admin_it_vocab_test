@@ -5,6 +5,11 @@ const authApi = {
             body: JSON.stringify({ email, password })
         });
         tokenStore.setTokens(data);
+        if (data.user) {
+            localStorage.setItem('user', JSON.stringify(data.user));
+        } else {
+            localStorage.setItem('user', JSON.stringify({ email: email, name: email.split('@')[0] }));
+        }
         return data;
     },
 
