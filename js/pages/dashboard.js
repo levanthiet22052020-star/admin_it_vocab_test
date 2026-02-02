@@ -12,14 +12,24 @@ document.addEventListener('DOMContentLoaded', async function () {
 async function loadDashboardData() {
     try {
         const [usersData, wordsData, quizzesData, feedbackData] = await Promise.all([
-            leaderboardApi.getXP().catch(() => ({ userList: [] })),
+            usersApi.getUsers({ pageSize: 1 }).catch(() => ({ total: 0, items: [] })),
             vocabularyApi.getAll().catch(() => ({ items: [], total: 0 })),
             questionsApi.getAll().catch(() => ({ quizzes: [], total: 0 })),
             feedbackApi.getAll().catch(() => ({ items: [], total: 0 }))
         ]);
 
-        const users = usersData.userList || [];
-        const usersCount = users.length;
+        const usersCount = usersData.total || 0;
+        const users = usersData.items || []; // Note: this will only contain 1 user due to pageSize: 1, if we need chart data we might need a separate call or specific API for stats.
+        // However, the original code used leaderboard data for the chart, which is just top users.
+        // For the valid chart we probably want "new users per day" or similar, but the current chart is "active users" which was checking "isToday".
+        // The original code was: const totalUsers = users.length || 1; -> userList length of leaderboard.
+        // Let's keep the leaderboard call for the chart to avoid breaking it, but use usersData for the count.
+
+        let recentUsersForChart = [];
+        try {
+            const leaderboardData = await leaderboardApi.getXP();
+            recentUsersForChart = leaderboardData.userList || [];
+        } catch (e) { console.warn("Leaderboard fetch failed for chart", e); }
         const wordsCount = wordsData.total || wordsData.items?.length || 0;
         const questionsCount = quizzesData.total || quizzesData.quizzes?.length || 0;
 
@@ -31,7 +41,7 @@ async function loadDashboardData() {
         updateStatElement('statQuestions', questionsCount);
         updateStatElement('statFeedback', openFeedback);
 
-        renderActiveUsersChart(users);
+        renderActiveUsersChart(recentUsersForChart);
         renderVocabGrowthChart(wordsData);
         renderRecentActivity(feedbackItems, wordsData, quizzesData);
 

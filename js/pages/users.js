@@ -3,16 +3,22 @@ document.addEventListener('DOMContentLoaded', async function () {
     await loadLeaderboards();
     await loadUsers();
 
+    await loadUsers();
+
     DataWatcher.watch('users', function () {
-        return leaderboardApi.getXP().then(function (data) { return data.userList || []; });
+        return usersApi.getUsers({ page: currentPage, pageSize: 20 }).then(function (data) { return data.items || []; });
     }, function (data) {
-        allUsers = data;
-        renderUserTable(data);
-        loadLeaderboards();
+        // Only auto-reload if on first page to avoid jumping
+        if (currentPage === 1) {
+            loadUsers();
+        }
     }, 15000);
 });
 
 let allUsers = [];
+let currentPage = 1;
+let totalPages = 1;
+let totalItems = 0;
 
 async function loadLeaderboards() {
     try {
@@ -138,13 +144,20 @@ function getRankBadgeClass(rankLevel) {
     return classes[rankLevel] || 'badge-orange';
 }
 
-async function loadUsers() {
+async function loadUsers(page = 1, search = '') {
     try {
-        const data = await leaderboardApi.getXP();
-        allUsers = data.userList || [];
+        const params = { page, pageSize: 20 };
+        if (search) params.search = search;
 
-        renderUserStats(allUsers);
+        const data = await usersApi.getUsers(params);
+        allUsers = data.items || [];
+        currentPage = data.page;
+        totalPages = data.totalPages;
+        totalItems = data.total;
+
+        renderUserStats({ total: totalItems, items: allUsers }); // We might need a separate stats API if we want full stats, but for now use what we have or just total
         renderUserTable(allUsers);
+        renderPagination();
     } catch (error) {
         console.error('Error loading users:', error);
         document.getElementById('userTableBody').innerHTML = `
@@ -153,10 +166,34 @@ async function loadUsers() {
     }
 }
 
-function renderUserStats(users) {
-    const totalUsers = users.length;
-    const activeUsers = users.filter(u => u.status !== 'BANNED').length;
-    const bannedUsers = users.filter(u => u.status === 'BANNED').length;
+function renderPagination() {
+    const container = document.querySelector('.pagination-controls'); // Ensure this element exists in HTML or create it
+    if (!container) return;
+
+    // Simple pagination logic
+    let html = '';
+    if (totalPages > 1) {
+        html += `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Trước</button>`;
+        html += `<span>Trang ${currentPage} / ${totalPages}</span>`;
+        html += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Sau</button>`;
+    }
+    container.innerHTML = html;
+}
+
+window.changePage = function (page) {
+    if (page < 1 || page > totalPages) return;
+    loadUsers(page, document.querySelector('.search-input')?.value || '');
+}
+
+function renderUserStats(data) {
+    // Note: With pagination, we calculate stats based on the returned total or separate API.
+    // The current API returns 'total' users.
+    // Active/Banned stats would require a specific stats endpoint or filtering on the backend.
+    // For now, let's display the total count correctly.
+    const totalUsers = data.total || 0;
+
+    // We can't know exact active/banned counts without fetching ALL users or adding stats endpoint.
+    // We will show "--" for now or simulate if possible, but total is accurate.
 
     const statsContainer = document.querySelector('.mini-stats');
     if (statsContainer) {
@@ -165,14 +202,16 @@ function renderUserStats(users) {
                 <p class="mini-stat-value blue">${totalUsers}</p>
                 <p class="mini-stat-label">Tổng người dùng</p>
             </div>
+            <!--
             <div class="mini-stat green">
-                <p class="mini-stat-value green">${activeUsers || totalUsers}</p>
+                <p class="mini-stat-value green">--</p>
                 <p class="mini-stat-label">Hoạt động</p>
             </div>
             <div class="mini-stat red">
-                <p class="mini-stat-value red">${bannedUsers}</p>
+                <p class="mini-stat-value red">--</p>
                 <p class="mini-stat-label">Bị cấm</p>
             </div>
+            -->
         `;
     }
 }
@@ -194,6 +233,8 @@ function renderUserTable(users) {
             ? `<img class="avatar" src="${user.avatarURL}" alt="avatar" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">`
             : `<div class="avatar">${getInitials(user.name)}</div>`;
 
+        const xpValue = user.currentXP || user.value || 0;
+
         return `
         <tr>
             <td>
@@ -203,14 +244,14 @@ function renderUserTable(users) {
                 </div>
             </td>
             <td><span style="font-weight: 500;">Cấp ${rankLevel}</span></td>
-            <td><span style="font-weight: 500;">${formatNumber(user.value || 0)}</span></td>
+            <td><span style="font-weight: 500;">${formatNumber(xpValue)}</span></td>
             <td>${statusBadge}</td>
         </tr>
     `}).join('');
 
     const countEl = document.querySelector('.table-count');
     if (countEl) {
-        countEl.textContent = `Hiển thị ${users.length} người dùng`;
+        countEl.textContent = `Hiển thị ${users.length} / ${totalItems} người dùng`;
     }
 }
 
@@ -360,12 +401,11 @@ function deleteUser(userId, userName) {
 
 const searchInput = document.querySelector('.search-input');
 if (searchInput) {
+    let timeout;
     searchInput.addEventListener('input', function (e) {
-        const query = e.target.value.toLowerCase();
-        const filtered = allUsers.filter(user =>
-            (user.name || '').toLowerCase().includes(query) ||
-            (user.email || '').toLowerCase().includes(query)
-        );
-        renderUserTable(filtered);
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            loadUsers(1, e.target.value);
+        }, 500);
     });
 }

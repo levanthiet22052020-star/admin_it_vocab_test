@@ -16,5 +16,10 @@ const usersApi = {
             method: 'PUT',
             body: JSON.stringify(data)
         });
+    },
+
+    async getUsers(params = {}) {
+        const query = new URLSearchParams(params).toString();
+        return apiRequest(`/admin/users?${query}`);
     }
 };
